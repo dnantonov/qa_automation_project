@@ -75,4 +75,4 @@ class TestUserAddToBasketFromProductPage():
         link = "http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/"
         page = ProductPage(browser, link)
         page.open()
-        page.add_product_to_cart_from_product_page()
+        page.add_product_to_cart()
