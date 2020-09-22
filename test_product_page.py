@@ -72,7 +72,7 @@ class TestUserAddToBasketFromProductPage():
     
     @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self, browser):
-        link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+        link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-work_207/"
         page = ProductPage(browser, link)
         page.open()
-        page.add_product_to_cart()
+        page.add_product_to_cart_from_product_page()
