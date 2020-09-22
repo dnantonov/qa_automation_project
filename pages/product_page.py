@@ -6,7 +6,12 @@ class ProductPage(BasePage):
     def add_product_to_cart(self):
         self.should_be_cart_button()
         self.find_cart_button_and_click()
-        # self.solve_quiz_and_get_code()
+        self.solve_quiz_and_get_code()
+        self.added_product_check()
+    
+    def add_product_to_cart_from_product_page(self):
+        self.should_be_cart_button()
+        self.find_cart_button_and_click()
         self.added_product_check()
 
     def find_cart_button_and_click(self):
