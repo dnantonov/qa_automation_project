@@ -7,7 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-class BasePage():
+class BasePage:
 
     def __init__(self, browser, url, timeout=10):
         self.browser = browser
@@ -25,7 +25,7 @@ class BasePage():
         link.click()
         assert self.browser.current_url == "http://selenium1py.pythonanywhere.com/en-gb/basket/", \
             "Links are not the same"
-    
+
     def open(self):
         return self.browser.get(self.url)
 
@@ -34,7 +34,6 @@ class BasePage():
             return self.browser.find_element(how, what)
         except NoSuchElementException:
             return False
-        return True
 
     def is_not_element_present(self, how, what, timeout=4):
         try:
@@ -45,7 +44,7 @@ class BasePage():
 
     def is_disappeared(self, how, what, timeout=4):
         try:
-            WebDriverWait(self.browser, timeout, 1, TimeoutException).\
+            WebDriverWait(self.browser, timeout, 1, TimeoutException). \
                 until_not(EC.presence_of_element_located((how, what)))
         except TimeoutException:
             return False
@@ -70,4 +69,4 @@ class BasePage():
 
     def should_be_authorized_user(self):
         assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
-                                                                    " probably unauthorised user"
+                                                                     " probably unauthorised user"
